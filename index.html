@@ -52,36 +52,55 @@
             min-width: 300px;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centre verticalement le contenu */
+            justify-content: center;
             padding-left: 20px;
         }
 
         .infos h1 {
-            font-size: 1.75rem; /* 28px */
-            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem; /* 24px - titre réduit */
+            margin: 0 0 0.2rem 0;
             color: #2c3e50;
             line-height: 1.2;
+            font-variant-small-caps: normal;
+        }
+
+        .nom-bertho {
+            font-variant-small-caps: small-caps; /* "ERTHO" en petites capitales */
         }
 
         .infos a {
             color: #0056b3;
             text-decoration: none;
             font-weight: bold;
+            margin: 0 0 0.8rem 0; /* Espace réduit entre email et premier bloc */
+            display: inline-block;
         }
 
         .infos a:hover {
             text-decoration: underline;
         }
 
-        .infos p {
-            margin: 0.25rem 0;
+        /* Styles pour les blocs d'information */
+        .info-block {
+            margin-bottom: 1.2rem; /* Espace entre les blocs */
+        }
+
+        .info-block h2 {
+            font-size: 1.1rem;
+            margin: 0 0 0.3rem 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .info-block p {
+            margin: 0.1rem 0;
             line-height: 1.4;
         }
 
         .textfootnote {
             font-size: 0.9rem;
             color: #555;
-            margin: 0.2rem 0;
+            margin: 0.1rem 0;
         }
 
         /* Sections et liens */
@@ -112,7 +131,7 @@
         /* Adaptation mobile */
         @media (max-width: 768px) {
             body {
-                font-size: 15px; /* Légère réduction pour mobile */
+                font-size: 15px;
             }
 
             header {
@@ -130,19 +149,12 @@
             }
 
             .infos h1 {
-                font-size: 1.5rem; /* 24px sur mobile */
+                font-size: 1.3rem;
             }
 
             .section-link {
                 font-size: 1rem;
                 padding: 12px 15px;
-            }
-        }
-
-        /* Pour le zoom (accessibilité) */
-        @media (prefers-reduced-motion: no-preference) {
-            * {
-                transition: none !important;
             }
         }
     </style>
@@ -156,24 +168,30 @@
                 <img src="yann.gif" alt="Photo de Dr. Yann BERTHO">
             </div>
             <div class="infos">
-                <h1>Dr. Yann BERTHO</h1>
+                <h1>Dr. Yann B<span class="nom-bertho">ERTHO</span></h1>
                 <a href="mailto:yann.bertho@universite-paris-saclay.fr">yann.bertho@universite-paris-saclay.fr</a>
 
-                <p><b>Vice-doyen de la Faculté des Sciences d'Orsay</b></p>
-                <p class="textfootnote">
-                    Bât. 301 - Université Paris-Saclay<br>
-                    Avenue Jean Perrin<br>
-                    91400 Orsay<br>
-                    <b>Tel:</b> 01.69.15.34.90
-                </p>
+                <!-- Premier bloc d'informations -->
+                <div class="info-block">
+                    <h2>Vice-doyen de la Faculté des Sciences d'Orsay</h2>
+                    <p class="textfootnote">
+                        Bât. 301 - Université Paris-Saclay<br>
+                        Avenue Jean Perrin<br>
+                        91400 Orsay<br>
+                        <b>Tel:</b> 01.69.15.34.90
+                    </p>
+                </div>
 
-                <p><b>Enseignant-Chercheur à l'Université Paris-Saclay</b></p>
-                <p class="textfootnote">
-                    Laboratoire FAST<br>
-                    Bât. 530 - Université Paris-Saclay<br>
-                    91400 Orsay<br>
-                    <b>Tel:</b> 01.69.15.80.40
-                </p>
+                <!-- Deuxième bloc d'informations -->
+                <div class="info-block">
+                    <h2>Enseignant-Chercheur à l'Université Paris-Saclay</h2>
+                    <p class="textfootnote">
+                        Laboratoire FAST<br>
+                        Bât. 530 - Université Paris-Saclay<br>
+                        91400 Orsay<br>
+                        <b>Tel:</b> 01.69.15.80.40
+                    </p>
+                </div>
             </div>
         </header>
 
