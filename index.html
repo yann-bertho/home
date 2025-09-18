@@ -1,126 +1,116 @@
-
-
 <!DOCTYPE html>
-  <html lang="fr">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Mon Site Perso</title>
-      <style>
-          body {
-              font-family: Arial, sans-serif;
-              line-height: 1.6;
-              margin: 0;
-              padding: 20px;
-              color: #333;
-              max-width: 800px;
-              margin: auto;
-          }
-          header {
-              text-align: center;
-              padding: 20px 0;
-              border-bottom: 1px solid #eee;
-          }
-      </style>
-  </head>
-  <body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Professionnel</title>
+    <style>
+        /* Style de base pour une mise en page propre */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
 
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-<!-- ICI SE TROUVE L'ENTETE DE LA PAGE PERSONELLE (PHOTO + COORDONNEES) -->
+        /* Style pour l'entÃªte avec photo et infos */
+        header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-<table cellspacing=0 cellpadding=0 width="100%" >
-<tr valign=TOP>
-	<td valign=center align=LEFT>
-		<img src="Yann8.gif">
-	</td>
+        .photo {
+            width: 150px;
+            height: 150px;
+            margin-right: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
-	<td align=LEFT>
-		<br>
-		<h1>Dr. Yann BERTHO</h1>
-		<a href="mailto:yann.bertho@universite-paris-saclay.fr"><b>yann.bertho@universite-paris-saclay.fr</b></a><br>
-		<br>
-		<p><b>Vice-doyen de la Faculté des Sciences d'Orsay</b></p>		
-		<p class="textfootnote">Bât. 301 - Université Paris-Saclay<br>
-		Avenue Jean Perrin<br>
-		91400 Orsay<br>
-		<b>Tel:</b> 01.69.15.34.90.<br><br>
-		</p>		
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-		<p><b>Enseignant-Chercheur &agrave; l'Universit&eacute; Paris-Saclay</b></p>
-		<p class="textfootnote">Laboratoire FAST<br>
-		Bât. 530 - Université Paris-Saclay<br>
-		91400 Orsay<br>
-		<b>Tel:</b> 01.69.15.80.40.<br><br>
-		</p>
-		<ul class="liste-liens"><b>Th&eacute;matique: </b><a href="http://www.fast.u-psud.fr/themes/themes.php?theme=2&lang=fr">Granulaires et Suspensions</a></ul>
-	</td>
+        .infos {
+            flex: 1;
+        }
 
-	<td align=RIGHT>
-	<a href="index_en.php"><img src="http://www.fast.u-psud.fr/pics/drapeau_anglais.jpg" border=0 alt="English version"></a>
-	</td>
-</tr>
-</table>
+        .infos h1 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
 
+        .infos p {
+            margin: 5px 0;
+        }
 
-<p align=center >
- 	<img src="http://www.fast.u-psud.fr/kitcnrs/z-outils/images/boite-outils/lire-la-suite.gif" width="100%" height="3" alt="" border="0"> 
-<!--<img  src="http://www.fast.u-psud.fr/KitSPI/z-outils/images/boite-outils/filet-couleur.gif" width="70%" height="1" border="0" >-->
-</p>
+        /* Style pour les titres/liens */
+        .sections {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
+        .section-link {
+            display: block;
+            padding: 15px 20px;
+            background-color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-<br>
+        .section-link:hover {
+            background-color: #e8f4fc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- EntÃªte avec photo et infos -->
+        <header>
+            <div class="photo">
+                <!-- Remplace "photo.jpg" par le nom de ton fichier image -->
+                <img src="photo.jpg" alt="Ma photo">
+            </div>
+            <div class="infos">
+                <h1>NOM PrÃ©nom</h1>
+                <p><strong>Adresse :</strong> 123 Rue Exemple, Ville, Pays</p>
+                <p><strong>Fonction professionnelle :</strong> Ton mÃ©tier/ta fonction</p>
+            </div>
+        </header>
 
-<!-- ICI SE TROUVE LE CORPS DE LA PAGE -->
-
-<!--
-<h2>Activit&eacute;s de recherche</h2>
-
-
-<ul>
-    <li>Milieux granulaires</li>
-    <li>Mousses</li>
-    <li>Instabilit&eacute;s hydrodynamiques</li>
-
-    <?en_savoir_plus("www.fast.u-psud.fr/~bertho/recherche_fr.php")?>
-</ul>
-
--->
-
-<br><br>
-
-<h2><a href="cv_fr.php">Curriculum Vitae</a></h2>
-
-<br>
-
-<h2><a href="publications_fr.php">Publications et diffusion scientifique</a></h2>
-
-
-<br>
-
-<h2><a href="enseignement_fr.php">Enseignement</a></h2>
-
-<br>
-
-
-
-<!--
-<h2>Propositions de stage/thèse/postdoc <img src="http://www.fast.u-psud.fr/~bertho/star.gif"></h2>
-<ul>
-    <li><a href="Stage_Fakir.pdf">Avalanches sur plan fakir</a> (Stage 2016)</li>
-</ul>
-
---> 
-
-<br><br><br>
-
-
-<hr>
-
-<img src="http://www.fast.u-psud.fr/~bertho/Quiberon.gif">
-
-
-<!-- FIN DU CORPS DE LA PAGE -->
-
-
+        <!-- Liens vers les diffÃ©rentes sections -->
+        <div class="sections">
+            <a href="cv.html" class="section-link">Curriculum Vitae</a>
+            <a href="publications.html" class="section-link">Publications</a>
+            <a href="enseignement.html" class="section-link">Enseignement</a>
+            <a href="recherche.html" class="section-link">Recherche</a>
+        </div>
+    </div>
 </body>
+</html>
+
+
+
+
+
   </html>
