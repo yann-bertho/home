@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche - Dr. Yann BERTHO</title>
+    <style>
+        :root {
+            /* Couleurs cohérentes avec votre charte */
+            --bg-body: #f9f9f9;
+            --bg-header: white;
+            --bg-section: white;
+            --text-primary: #333;
+            --text-secondary: #555;
+            --text-link: #0056b3;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --hover-bg: #e8f4fc;
+            --border-color: #e0e0e0;
+            --research-border: 1px solid #ddd;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-body: #1a1a1a;
+                --bg-header: #252525;
+                --bg-section: #2d2d2d;
+                --text-primary: #e0e0e0;
+                --text-secondary: #aaaaaa;
+                --text-link: #4dabf7;
+                --shadow: rgba(0, 0, 0, 0.3);
+                --hover-bg: #3a3a3a;
+                --border-color: #444;
+                --research-border: 1px solid #555;
+            }
+        }
+        /* Base */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* En-tête */
+        .header {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        h1 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        /* Sections de recherche */
+        .research-section {
+            margin-bottom: 40px;
+        }
+        .research-section h2 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin: 0 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--text-primary);
+        }
+        /* Conteneur pour chaque activité de recherche */
+        .research-item {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: var(--research-border);
+            gap: 20px;
+        }
+        .research-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        /* Style pour la photo illustrative */
+        .research-photo {
+            flex: 0 0 250px;
+            max-width: 250px;
+        }
+        .research-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px var(--shadow);
+        }
+        /* Style pour le contenu textuel */
+        .research-content {
+            flex: 1;
+        }
+        .research-title {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin: 0 0 8px 0;
+            font-weight: 600;
+        }
+        .research-collaborators {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin: 0 0 12px 0;
+            font-size: 0.95rem;
+        }
+        .research-description {
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin: 0;
+        }
+        /* Adaptation mobile */
+        @media (max-width: 768px) {
+            .research-item {
+                flex-direction: column;
+            }
+            .research-photo {
+                max-width: 100%;
+                margin-bottom: 15px;
+            }
+            .research-title {
+                font-size: 1.2rem;
+            }
+            body {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête -->
+        <div class="header">
+            <h1>Recherche</h1>
+        </div>
+
+        <!-- Section Activités en cours -->
+        <div class="research-section">
+            <h2>Activités en cours</h2>
+
+            <!-- Exemple d'activité 1 - À remplacer par vos contenus -->
+            <div class="research-item">
+                <div class="research-photo">
+                    <img src="images/recherche_en_cours_1.jpg" alt="Illustration projet courant 1">
+                </div>
+                <div class="research-content">
+                    <h3 class="research-title">Titre du projet en cours 1</h3>
+                    <p class="research-collaborators">
+                        Collaborateurs: Nom Collaborateur 1 (Institution), Nom Collaborateur 2 (Institution)
+                    </p>
+                    <p class="research-description">
+                        Description concise des objectifs, méthodes et résultats préliminaires de cette activité de recherche.
+                        Vous pouvez mentionner ici les techniques expérimentales ou théoriques utilisées, ainsi que les
+                        partenariats industriels ou académiques le cas échéant. Les résultats marquants peuvent être
+                        mis en avant avec des liens vers des publications si disponibles.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exemple d'activité 2 - À remplacer -->
+            <div class="research-item">
+                <div class="research-photo">
+                    <img src="images/recherche_en_cours_2.jpg" alt="Illustration projet courant 2">
+                </div>
+                <div class="research-content">
+                    <h3 class="research-title">Titre du projet en cours 2</h3>
+                    <p class="research-collaborators">
+                        Collaborateurs: Nom Collaborateur A (Laboratoire X), Nom Collaborateur B (Entreprise Y)
+                    </p>
+                    <p class="research-description">
+                        Description de votre deuxième activité de recherche en cours. Structurez le texte pour mettre
+                        en valeur:
+                        <ul>
+                            <li>Les questions scientifiques abordées</li>
+                            <li>Les approches méthodologiques innovantes</li>
+                            <li>Les applications potentielles ou résultats attendus</li>
+                        </ul>
+                        N'hésitez pas à ajouter des liens vers des ressources externes si pertinent.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Activités passées -->
+        <div class="research-section">
+            <h2>Activités passées</h2>
+
+            <!-- Exemple d'activité passée 1 - À remplacer -->
+            <div class="research-item">
+                <div class="research-photo">
+                    <img src="images/recherche_passee_1.jpg" alt="Illustration projet passé 1">
+                </div>
+                <div class="research-content">
+                    <h3 class="research-title">Titre du projet passé 1 (2018-2022)</h3>
+                    <p class="research-collaborators">
+                        Collaborateurs: Ancien Collaborateur 1 (Ancienne Institution), Ancien Collaborateur 2
+                    </p>
+                    <p class="research-description">
+                        Résumé des principaux résultats obtenus durant ce projet. Mettez en avant:
+                        <ul>
+                            <li>Les publications majeures issues de ces travaux</li>
+                            <li>Les applications concrètes ou transferts technologiques réalisés</li>
+                            <li>Les financements obtenus (ANR, Europe, etc.)</li>
+                        </ul>
+                        Vous pouvez aussi mentionner comment ces travaux ont influencé vos recherches actuelles.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Exemple d'activité passée 2 - À remplacer -->
+            <div class="research-item">
+                <div class="research-photo">
+                    <img src="images/recherche_passee_2.jpg" alt="Illustration projet passé 2">
+                </div>
+                <div class="research-content">
+                    <h3 class="research-title">Titre du projet passé 2 (2015-2018)</h3>
+                    <p class="research-collaborators">
+                        Collaborateurs: Partenaire International (Université Étrangère)
+                    </p>
+                    <p class="research-description">
+                        Description synthétique de cette ancienne activité. Idéalement avec:
+                        <ul>
+                            <li>Un bref contexte scientifique</li>
+                            <li>Les méthodes originales développées</li>
+                            <li>L'impact scientifique ou sociétal</li>
+                        </ul>
+                        Si ce projet a donné lieu à des brevets ou des valorisations, mentionnez-les ici.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
