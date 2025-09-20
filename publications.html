@@ -20,7 +20,6 @@
             --icon-size: 22px;
             --category-international: #4a90e2;
             --category-diffusion: #50c878;
-            --category-highlight: #ffa500;
             --category-congres: #9b59b6;
             --link-hover: #0066cc;
         }
@@ -141,7 +140,7 @@
         .stat-item {
             text-align: center;
             flex: 1;
-            min-width: 120px;
+            min-width: 150px;
         }
         .stat-number {
             font-size: 1.5rem;
@@ -150,16 +149,38 @@
         }
         .stat-number.international { color: var(--category-international); }
         .stat-number.diffusion { color: var(--category-diffusion); }
-        .stat-number.highlight { color: var(--category-highlight); }
         .stat-number.congres { color: var(--category-congres); }
         .stat-label {
             font-size: 0.9rem;
             color: var(--text-secondary);
         }
-        /* Publications */
+        /* Sections de publications */
         .publications-section {
             margin-bottom: 40px;
         }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        .section-title {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        .section-count {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        /* Publications */
         .publication-row {
             display: flex;
             flex-wrap: wrap;
@@ -184,7 +205,6 @@
         }
         .publication-index.international { color: var(--category-international); }
         .publication-index.diffusion { color: var(--category-diffusion); }
-        .publication-index.highlight { color: var(--category-highlight); }
         .publication-index.congres { color: var(--category-congres); }
         .category-indicator {
             width: 4px;
@@ -196,8 +216,7 @@
         }
         .category-1 { background-color: var(--category-international); }
         .category-2 { background-color: var(--category-diffusion); }
-        .category-3 { background-color: var(--category-highlight); }
-        .category-4 { background-color: var(--category-congres); }
+        .category-3 { background-color: var(--category-congres); }
         .publication-content {
             flex: 1;
             min-width: 300px;
@@ -321,6 +340,11 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -362,19 +386,15 @@
             </div>
         </div>
 
-        <!-- Statistiques résumées (mises à jour) -->
+        <!-- Statistiques résumées -->
         <div class="stats-section">
             <div class="stat-item">
                 <div class="stat-number international">22</div>
                 <div class="stat-label">Publications internationales</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number diffusion">12</div>
-                <div class="stat-label">Articles de diffusion</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number highlight">14</div>
-                <div class="stat-label">Highlights médiatiques</div>
+                <div class="stat-number diffusion">26</div>
+                <div class="stat-label">Diffusion et highlights</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number congres">14</div>
@@ -386,14 +406,18 @@
         <div class="filters-section">
             <button class="filter-btn active" data-filter="all">Tous</button>
             <button class="filter-btn" data-filter="international">Internationales</button>
-            <button class="filter-btn" data-filter="diffusion">Diffusion</button>
-            <button class="filter-btn" data-filter="highlight">Highlights</button>
+            <button class="filter-btn" data-filter="diffusion">Diffusion et highlights</button>
             <button class="filter-btn" data-filter="congres">Congrès</button>
         </div>
 
-        <!-- Publications internationales (22 maintenant) -->
-        <div class="publications-section">
-            <!-- Publication 22 -->
+        <!-- Publications internationales à comité de lecture -->
+        <div class="publications-section" id="international-section" data-type="international">
+            <div class="section-header">
+                <h2 class="section-title">Publications internationales à comité de lecture</h2>
+                <span class="section-count">22</span>
+            </div>
+
+            <!-- Publication 22 (la plus récente) -->
             <div class="publication-row" data-type="international">
                 <div class="publication-index international"><strong>22</strong></div>
                 <div class="category-indicator category-1"></div>
@@ -834,7 +858,7 @@
                 </div>
             </div>
 
-            <!-- Publication 1 -->
+            <!-- Publication 1 (la plus ancienne) -->
             <div class="publication-row" data-type="international">
                 <div class="publication-index international"><strong>1</strong></div>
                 <div class="category-indicator category-1"></div>
@@ -856,11 +880,16 @@
             </div>
         </div>
 
-        <!-- Diffusion scientifique -->
-        <div class="publications-section">
-            <!-- Diffusion 12 -->
+        <!-- Diffusion scientifique et highlights -->
+        <div class="publications-section" id="diffusion-section" data-type="diffusion">
+            <div class="section-header">
+                <h2 class="section-title">Diffusion scientifique et highlights</h2>
+                <span class="section-count">26</span>
+            </div>
+
+            <!-- Diffusion/Highlight 26 (la plus récente) -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>12</strong></div>
+                <div class="publication-index diffusion"><strong>26</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <a href="https://www.pourlascience.fr/sd/physique/avancer-de-front-dans-le-sable-reduit-la-resistance-27334.php" class="publication-link" target="_blank">
@@ -879,9 +908,9 @@
                 </div>
             </div>
 
-            <!-- Diffusion 11 -->
+            <!-- Diffusion/Highlight 25 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>11</strong></div>
+                <div class="publication-index diffusion"><strong>25</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <a href="https://www.pourlascience.fr/sd/physique/comment-la-foret-freine-les-avalanches-25120.php" class="publication-link" target="_blank">
@@ -900,9 +929,9 @@
                 </div>
             </div>
 
-            <!-- Diffusion 10 -->
+            <!-- Diffusion/Highlight 24 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>10</strong></div>
+                <div class="publication-index diffusion"><strong>24</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <a href="https://www.pourlascience.fr/racine/type-article-editorial/actualites/les-tsunamis-d-effondrement-caracterises-en-laboratoire-22515.php" class="publication-link" target="_blank">
@@ -921,55 +950,67 @@
                 </div>
             </div>
 
-            <!-- Diffusion 9 -->
+            <!-- Diffusion/Highlight 23 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>9</strong></div>
+                <div class="publication-index diffusion"><strong>23</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
-                    <div class="publication-title">Billes d'eau ultra-absorbantes : la science décrypte leur super pouvoir !</div>
-                    <div class="publication-details"><i>e=m6</i>, Magazine scientifique, M6 (15/04/2018)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="Bertho_e=m6.mp4" target="_blank">
-                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
-                        </a>
-                        <div class="link-label">Vidéo</div>
-                        <span class="tooltiptext">Voir la vidéo</span>
-                    </div>
+                    <a href="https://phys.org/news/2024-12-cooperation-intruders-side-granular-media.html" class="publication-link" target="_blank">
+                        <div class="publication-title">Cooperation between two intruders moving side-by-side in granular media</div>
+                        <div class="publication-details">Science X (Phys.org) (28/12/2024)</div>
+                    </a>
                 </div>
             </div>
 
-            <!-- Diffusion 8 -->
+            <!-- Diffusion/Highlight 22 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>8</strong></div>
+                <div class="publication-index diffusion"><strong>22</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
-                    <div class="publication-title">Les tornades</div>
-                    <div class="publication-details"><i>La science des forces de la nature</i>, Documentaire, RMC Découverte (07/09/2017)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="Bertho_Tornades.mp4" target="_blank">
-                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
-                        </a>
-                        <div class="link-label">Vidéo</div>
-                        <span class="tooltiptext">Voir la vidéo</span>
-                    </div>
+                    <a href="https://www.insis.cnrs.fr/fr/cnrsinfo/comment-la-rotation-des-projectiles-les-fait-senfoncer-dans-les-milieux-granulaires" class="publication-link" target="_blank">
+                        <div class="publication-title">Comment la rotation des projectiles les fait s'enfoncer dans les milieux granulaires</div>
+                        <div class="publication-details">Actualités Scientifiques du CNRS Ingénierie (25/07/2024)</div>
+                    </a>
                 </div>
             </div>
 
-            <!-- Diffusion 7 -->
+            <!-- Diffusion/Highlight 21 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>7</strong></div>
+                <div class="publication-index diffusion"><strong>21</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
-                    <div class="publication-title">Impact</div>
-                    <div class="publication-details">Exposition grand public au château du Val Fleury 91190 Gif-sur-Yvette (06-30/10/2016)</div>
+                    <a href="https://physicsworld.com/a/forest-of-cylindrical-obstacles-slows-avalanche-flow/" class="publication-link" target="_blank">
+                        <div class="publication-title">'Forest of cylindrical obstacles' slows avalanche flow</div>
+                        <div class="publication-details">physicsworld (05/05/2023)</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 20 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>20</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <a href="https://phys.org/news/2023-04-forest-density-granular.html" class="publication-link" target="_blank">
+                        <div class="publication-title">How forest density slows granular flows</div>
+                        <div class="publication-details">Science X (Phys.org) (11/04/2023)</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 19 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>19</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <a href="https://news.universite-paris-saclay.fr/actualites/tsunamis-generes-par-effondrements-de-terrain-du-modele-au-reel" class="publication-link" target="_blank">
+                        <div class="publication-title">Tsunamis générés par effondrements : du modèle au réel</div>
+                        <div class="publication-details">Actualités scientifiques de l'Université Paris-Saclay (16/12/2021)</div>
+                    </a>
                 </div>
                 <div class="publication-links">
                     <div class="link-container tooltip">
-                        <a href="papers/Bertho_affiche_impact.pdf" target="_blank">
+                        <a href="papers/Bertho_Paris-Saclay2021.pdf" target="_blank">
                             <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
                         </a>
                         <div class="link-label">PDF</div>
@@ -978,17 +1019,121 @@
                 </div>
             </div>
 
-            <!-- Diffusion 6 -->
+            <!-- Diffusion/Highlight 18 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>6</strong></div>
+                <div class="publication-index diffusion"><strong>18</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
-                    <div class="publication-title">Voyage au centre de la Terre !</div>
-                    <div class="publication-details"><i>On n'est pas que des cobayes !</i> spéciale Jules Verne, Magazine scientifique, France5 (06/02/2016)</div>
+                    <a href="https://www.insu.cnrs.fr/fr/cnrsinfo/predire-la-generation-de-vagues-de-tsunamis-causees-par-effondrement-de-terrain" class="publication-link" target="_blank">
+                        <div class="publication-title">Prédire la génération de vagues de tsunamis causées par effondrement de terrain</div>
+                        <div class="publication-details">Actualités Scientifiques de l'INSU-CNRS (19/10/2021)</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 17 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>17</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <a href="https://insis.cnrs.fr/fr/cnrsinfo/des-tsunamis-generes-lechelle-du-laboratoire" class="publication-link" target="_blank">
+                        <div class="publication-title">Des tsunamis générés à l'échelle du laboratoire</div>
+                        <div class="publication-details">Actualités Scientifiques de l'INSIS-CNRS (01/02/2021)</div>
+                    </a>
                 </div>
                 <div class="publication-links">
                     <div class="link-container tooltip">
-                        <a href="Bertho_Cobaye.mp4" target="_blank">
+                        <a href="papers/Bertho_INSIS2021.pdf" target="_blank">
+                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        </a>
+                        <div class="link-label">PDF</div>
+                        <span class="tooltiptext">Télécharger le PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 16 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>16</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <a href="https://2018.racnrs.fr/portfolio-items/deux-motifs-derosion-en-competition-au-voisinage-dun-obstacle" class="publication-link" target="_blank">
+                        <div class="publication-title">Deux motifs d'érosion en compétition au voisinage d'un obstacle</div>
+                        <div class="publication-details">Rapport d'activité 2018 du CNRS</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 15 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>15</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Les étudiants en physique s'installent sur le plateau de Saclay</div>
+                    <div class="publication-details">Newsletter Campus et Patrimoine <strong>38</strong>, 2 (09/2019)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="papers/Bertho_Newsletter_Campus_Patrimoine38.pdf" target="_blank">
+                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        </a>
+                        <div class="link-label">PDF</div>
+                        <span class="tooltiptext">Télécharger le PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 14 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>14</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Un nouveau centre d'enseignement de la physique</div>
+                    <div class="publication-details">Newsletter Projet Campus <strong>13</strong>, 2 (12/2014)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="papers/Bertho_Newsletter_Projet_Campus13.pdf" target="_blank">
+                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        </a>
+                        <div class="link-label">PDF</div>
+                        <span class="tooltiptext">Télécharger le PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 13 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>13</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Déplacement dans le sable</div>
+                    <div class="publication-details">Actualités Scientifiques de l'INSIS-CNRS (26/07/2011)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="papers/Bertho_INSIS2011.pdf" target="_blank">
+                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        </a>
+                        <div class="link-label">PDF</div>
+                        <span class="tooltiptext">Télécharger le PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 12 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>12</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <a href="https://www.youtube.com/watch?v=WSzBN0twmSM" class="publication-link" target="_blank">
+                        <div class="publication-title">Le projet Enseignement de la Physique</div>
+                        <div class="publication-details">Web-documentaire, Université Paris-Sud, Mission Plan Campus (10/2016)</div>
+                    </a>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="https://www.youtube.com/watch?v=WSzBN0twmSM" target="_blank">
                             <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
                         </a>
                         <div class="link-label">Vidéo</div>
@@ -997,9 +1142,21 @@
                 </div>
             </div>
 
-            <!-- Diffusion 5 -->
+            <!-- Diffusion/Highlight 11 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>5</strong></div>
+                <div class="publication-index diffusion"><strong>11</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <a href="http://journals.aps.org/pre/kaleidoscope/pre/93/1/012904" class="publication-link" target="_blank">
+                        <div class="publication-title">Local rheological measurements in the granular flow around an intruder</div>
+                        <div class="publication-details">Kaleidoscope de Physical Review (01/2016)</div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 10 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>10</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <a href="https://doi.org/10.1051/refdp/201336022" class="publication-link" target="_blank">
@@ -1018,9 +1175,85 @@
                 </div>
             </div>
 
-            <!-- Diffusion 4 -->
+            <!-- Diffusion/Highlight 9 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>4</strong></div>
+                <div class="publication-index diffusion"><strong>9</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Billes d'eau ultra-absorbantes : la science décrypte leur super pouvoir !</div>
+                    <div class="publication-details"><i>e=m6</i>, Magazine scientifique, M6 (15/04/2018)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="Bertho_e=m6.mp4" target="_blank">
+                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
+                        </a>
+                        <div class="link-label">Vidéo</div>
+                        <span class="tooltiptext">Voir la vidéo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 8 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>8</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Les tornades</div>
+                    <div class="publication-details"><i>La science des forces de la nature</i>, Documentaire, RMC Découverte (07/09/2017)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="Bertho_Tornades.mp4" target="_blank">
+                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
+                        </a>
+                        <div class="link-label">Vidéo</div>
+                        <span class="tooltiptext">Voir la vidéo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 7 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>7</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Impact</div>
+                    <div class="publication-details">Exposition grand public au château du Val Fleury 91190 Gif-sur-Yvette (06-30/10/2016)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="papers/Bertho_affiche_impact.pdf" target="_blank">
+                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        </a>
+                        <div class="link-label">PDF</div>
+                        <span class="tooltiptext">Télécharger le PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 6 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>6</strong></div>
+                <div class="category-indicator category-2"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Voyage au centre de la Terre !</div>
+                    <div class="publication-details"><i>On n'est pas que des cobayes !</i> spéciale Jules Verne, Magazine scientifique, France5 (06/02/2016)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="Bertho_Cobaye.mp4" target="_blank">
+                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
+                        </a>
+                        <div class="link-label">Vidéo</div>
+                        <span class="tooltiptext">Voir la vidéo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diffusion/Highlight 5 -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index diffusion"><strong>5</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <div class="publication-title">Sur les écoulements granulaires confinés</div>
@@ -1037,9 +1270,9 @@
                 </div>
             </div>
 
-            <!-- Diffusion 3 -->
+            <!-- Diffusion/Highlight 4 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>3</strong></div>
+                <div class="publication-index diffusion"><strong>4</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <div class="publication-title">Variations de pression dans un écoulement granulaire dense intermittent</div>
@@ -1056,9 +1289,9 @@
                 </div>
             </div>
 
-            <!-- Diffusion 2 -->
+            <!-- Diffusion/Highlight 3 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>2</strong></div>
+                <div class="publication-index diffusion"><strong>3</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <div class="publication-title">Écoulements incontrôlés</div>
@@ -1075,9 +1308,9 @@
                 </div>
             </div>
 
-            <!-- Diffusion 1 -->
+            <!-- Diffusion/Highlight 2 -->
             <div class="publication-row" data-type="diffusion">
-                <div class="publication-index diffusion"><strong>1</strong></div>
+                <div class="publication-index diffusion"><strong>2</strong></div>
                 <div class="category-indicator category-2"></div>
                 <div class="publication-content">
                     <div class="publication-title">Dynamiques d'écoulements gaz/particules en conduite verticale</div>
@@ -1086,238 +1319,17 @@
             </div>
         </div>
 
-        <!-- Highlights -->
-        <div class="publications-section">
-            <!-- Highlight 1 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>1</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://phys.org/news/2024-12-cooperation-intruders-side-granular-media.html" class="publication-link" target="_blank">
-                        <div class="publication-title">Cooperation between two intruders moving side-by-side in granular media</div>
-                        <div class="publication-details">Science X (Phys.org) (28/12/2024)</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 2 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>2</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://www.insis.cnrs.fr/fr/cnrsinfo/comment-la-rotation-des-projectiles-les-fait-senfoncer-dans-les-milieux-granulaires" class="publication-link" target="_blank">
-                        <div class="publication-title">Comment la rotation des projectiles les fait s'enfoncer dans les milieux granulaires</div>
-                        <div class="publication-details">Actualités Scientifiques du CNRS Ingénierie (25/07/2024)</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 3 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>3</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://physicsworld.com/a/forest-of-cylindrical-obstacles-slows-avalanche-flow/" class="publication-link" target="_blank">
-                        <div class="publication-title">'Forest of cylindrical obstacles' slows avalanche flow</div>
-                        <div class="publication-details">physicsworld (05/05/2023)</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 4 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>4</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://phys.org/news/2023-04-forest-density-granular.html" class="publication-link" target="_blank">
-                        <div class="publication-title">How forest density slows granular flows</div>
-                        <div class="publication-details">Science X (Phys.org) (11/04/2023)</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 5 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>5</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://news.universite-paris-saclay.fr/actualites/tsunamis-generes-par-effondrements-de-terrain-du-modele-au-reel" class="publication-link" target="_blank">
-                        <div class="publication-title">Tsunamis générés par effondrements : du modèle au réel</div>
-                        <div class="publication-details">Actualités scientifiques de l'Université Paris-Saclay (16/12/2021)</div>
-                    </a>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_Paris-Saclay2021.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Highlight 6 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>6</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://www.insu.cnrs.fr/fr/cnrsinfo/predire-la-generation-de-vagues-de-tsunamis-causees-par-effondrement-de-terrain" class="publication-link" target="_blank">
-                        <div class="publication-title">Prédire la génération de vagues de tsunamis causées par effondrement de terrain</div>
-                        <div class="publication-details">Actualités Scientifiques de l'INSU-CNRS (19/10/2021)</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 7 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>7</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://insis.cnrs.fr/fr/cnrsinfo/des-tsunamis-generes-lechelle-du-laboratoire" class="publication-link" target="_blank">
-                        <div class="publication-title">Des tsunamis générés à l'échelle du laboratoire</div>
-                        <div class="publication-details">Actualités Scientifiques de l'INSIS-CNRS (01/02/2021)</div>
-                    </a>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_INSIS2021.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Highlight 8 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>8</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <div class="publication-title">Les étudiants en physique s'installent sur le plateau de Saclay</div>
-                    <div class="publication-details">Newsletter Campus et Patrimoine <strong>38</strong>, 2 (09/2019)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_Newsletter_Campus_Patrimoine38.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Highlight 9 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>9</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://2018.racnrs.fr/portfolio-items/deux-motifs-derosion-en-competition-au-voisinage-dun-obstacle" class="publication-link" target="_blank">
-                        <div class="publication-title">Deux motifs d'érosion en compétition au voisinage d'un obstacle</div>
-                        <div class="publication-details">Rapport d'activité 2018 du CNRS</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 10 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>10</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <div class="publication-title">Deux motifs d'érosion en compétition au voisinage d'un obstacle</div>
-                    <div class="publication-details">Actualités Scientifiques de l'INSIS-CNRS (05/03/2018)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_INSIS2018.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Highlight 11 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>11</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://www.youtube.com/watch?v=WSzBN0twmSM" class="publication-link" target="_blank">
-                        <div class="publication-title">Le projet Enseignement de la Physique</div>
-                        <div class="publication-details">Web-documentaire, Université Paris-Sud, Mission Plan Campus (10/2016)</div>
-                    </a>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="https://www.youtube.com/watch?v=WSzBN0twmSM" target="_blank">
-                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
-                        </a>
-                        <div class="link-label">Vidéo</div>
-                        <span class="tooltiptext">Voir la vidéo</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Highlight 12 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>12</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="http://journals.aps.org/pre/kaleidoscope/pre/93/1/012904" class="publication-link" target="_blank">
-                        <div class="publication-title">Local rheological measurements in the granular flow around an intruder</div>
-                        <div class="publication-details">Kaleidoscope de Physical Review (01/2016)</div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Highlight 13 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>13</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <div class="publication-title">Un nouveau centre d'enseignement de la physique</div>
-                    <div class="publication-details">Newsletter Projet Campus <strong>13</strong>, 2 (12/2014)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_Newsletter_Projet_Campus13.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Highlight 14 -->
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index highlight"><strong>14</strong></div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <div class="publication-title">Déplacement dans le sable</div>
-                    <div class="publication-details">Actualités Scientifiques de l'INSIS-CNRS (26/07/2011)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_INSIS2011.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- Actes de congrès -->
-        <div class="publications-section">
-            <!-- Congrès 1 -->
+        <div class="publications-section" id="congres-section" data-type="congres">
+            <div class="section-header">
+                <h2 class="section-title">Actes de congrès</h2>
+                <span class="section-count">14</span>
+            </div>
+
+            <!-- Congrès 14 (le plus récent) -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>1</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>14</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Dynamics of penetration into a granular medium by successive impacts</div>
                     <div class="publication-details">B. Darbois Texier, Y. Bertho and A. Seguin, <i>1st European Fluid Dynamics Conference</i>, Aix-la-Chapelle, Allemagne (2024)</div>
@@ -1333,10 +1345,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 2 -->
+            <!-- Congrès 13 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>2</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>13</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Drag reduction in the side-by-side motion of intruders in a granular bed</div>
                     <div class="publication-details">D.D. Carvalho, Y. Bertho, A. Seguin, E.M. Francklin and B. Darbois Texier, <i>1st European Fluid Dynamics Conference</i>, Aix-la-Chapelle, Allemagne (2024)</div>
@@ -1352,10 +1364,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 3 -->
+            <!-- Congrès 12 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>3</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>12</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Cooperation between two objects moving side-by-side in a granular medium</div>
                     <div class="publication-details">D.D. Carvalho, Y. Bertho, A. Seguin, E.M. Francklin and B. Darbois Texier, <i>27ème Rencontre du Non Linéaire</i>, Paris, France (2024)</div>
@@ -1371,10 +1383,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 4 -->
+            <!-- Congrès 11 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>4</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>11</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Scour patterns on the bed downstream of a vertical cylinder</div>
                     <div class="publication-details">F. Lachaussée, Y. Bertho, C. Morize, A. Sauret and P. Gondret, <i>The 5th symposium on two-phase modeling for sediment dynamics in geophysical flows</i>, Les Houches, France (2022)</div>
@@ -1390,10 +1402,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 5 -->
+            <!-- Congrès 10 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>5</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>10</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Downslope granular flow through a forest of obstacles</div>
                     <div class="publication-details">B. Darbois Texier, Y. Bertho and P. Gondret, <i>25ème Rencontre du Non Linéaire</i>, Paris, France (2022)</div>
@@ -1409,10 +1421,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 6 -->
+            <!-- Congrès 9 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>6</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>9</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Génération de tsunami par effondrement granulaire : du laboratoire au terrain</div>
                     <div class="publication-details">M. Robbe-Saule, C. Morize, Y. Bertho, A. Hildenbrand, A. Sauret and P. Gondret, <i>23ème Rencontre du Non Linéaire</i>, É. Falcon, M. Lefranc, F. Pétrélis and C.-T. Pham (Eds.), Paris, France (2020)</div>
@@ -1428,29 +1440,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 7 -->
-            <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>7</strong></div>
-                <div class="category-indicator category-4"></div>
-                <div class="publication-content">
-                    <div class="publication-title">Érosion autour et en aval d'un cylindre</div>
-                    <div class="publication-details">F. Lachaussée, Y. Bertho, C. Morize, A. Sauret and P. Gondret, <i>23ème Congrès Français de Mécanique</i>, Association Française de Mécanique (Eds.), Lille, France (2017)</div>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="papers/Bertho_CFM2017.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
-                        </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                </div>
-            </div>
-
             <!-- Congrès 8 -->
             <div class="publication-row" data-type="congres">
                 <div class="publication-index congres"><strong>8</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <a href="https://doi.org/10.1051/epjconf/201714009008" class="publication-link" target="_blank">
                         <div class="publication-title">Erosion patterns on a granular bed around a vertical cylinder</div>
@@ -1468,10 +1461,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 9 -->
+            <!-- Congrès 7 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>9</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>7</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <a href="https://doi.org/10.1051/epjconf/201714014007" class="publication-link" target="_blank">
                         <div class="publication-title">Experimental study of wave generation by a granular collapse</div>
@@ -1489,10 +1482,29 @@
                 </div>
             </div>
 
-            <!-- Congrès 10 -->
+            <!-- Congrès 6 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>10</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>6</strong></div>
+                <div class="category-indicator category-3"></div>
+                <div class="publication-content">
+                    <div class="publication-title">Érosion autour et en aval d'un cylindre</div>
+                    <div class="publication-details">F. Lachaussée, Y. Bertho, C. Morize, A. Sauret and P. Gondret, <i>23ème Congrès Français de Mécanique</i>, Association Française de Mécanique (Eds.), Lille, France (2017)</div>
+                </div>
+                <div class="publication-links">
+                    <div class="link-container tooltip">
+                        <a href="papers/Bertho_CFM2017.pdf" target="_blank">
+                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        </a>
+                        <div class="link-label">PDF</div>
+                        <span class="tooltiptext">Télécharger le PDF</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Congrès 5 -->
+            <div class="publication-row" data-type="congres">
+                <div class="publication-index congres"><strong>5</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Motifs d'érosion dans le sillage d'un cylindre</div>
                     <div class="publication-details">F. Lachaussée, Y. Bertho, C. Morize, A. Sauret and P. Gondret, <i>20ème Rencontre du Non Linéaire</i>, É. Falcon, M. Lefranc, F. Pétrélis and C.-T. Pham (Eds.), Paris, France (2017)</div>
@@ -1508,10 +1520,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 11 -->
+            <!-- Congrès 4 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>11</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>4</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Force de traînée dans un milieu granulaire "chaud"</div>
                     <div class="publication-details">A. Seguin, C. Coulais, Y. Bertho and P. Gondret, <i>22ème Congrès Français de Mécanique</i>, Association Française de Mécanique (Eds.), Lyon, France (2015)</div>
@@ -1527,10 +1539,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 12 -->
+            <!-- Congrès 3 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>12</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>3</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Champs de vitesse et de contrainte autour d'intrus en mouvement dans un matériau granulaire</div>
                     <div class="publication-details">A. Seguin, C. Coulais, F. Martinez, Y. Bertho and P. Gondret, <i>21ème Congrès Français de Mécanique</i>, Association Française de Mécanique (Eds.), Bordeaux, France (2013)</div>
@@ -1546,10 +1558,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 13 -->
+            <!-- Congrès 2 -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>13</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>2</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Penetration of a projectile by impact into a granular medium</div>
                     <div class="publication-details">A. Seguin, Y. Bertho and P. Gondret, <i>Traffic and Granular Flow '07</i>, C. Appert-Rolland, F. Chevoir, P. Gondret, S. Lassare, J.-P. Lebacque and M. Schreckenberg (Eds.), Springer Berlin Heidelberg, Orsay, France (2009)</div>
@@ -1565,10 +1577,10 @@
                 </div>
             </div>
 
-            <!-- Congrès 14 -->
+            <!-- Congrès 1 (le plus ancien) -->
             <div class="publication-row" data-type="congres">
-                <div class="publication-index congres"><strong>14</strong></div>
-                <div class="category-indicator category-4"></div>
+                <div class="publication-index congres"><strong>1</strong></div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
                     <div class="publication-title">Dense bubble flow in a silo: a particular granular material</div>
                     <div class="publication-details">Y. Bertho, C. Becco, H. Caps and N. Vandewalle, <i>Powders & Grains</i>, R. García-Rojo, H. J. Herrmann and S. McNamara (Eds.), A. A. Balkema, Rotterdam, Pays-Bas (2005)</div>
