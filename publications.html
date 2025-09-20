@@ -37,7 +37,6 @@
                 --border-color: #444;
                 --publication-border: 1px solid #555;
                 --accent-color: #5da9e9;
-                --link-hover: #3a86ff;
             }
         }
         body {
@@ -249,7 +248,7 @@
             color: var(--text-secondary);
             text-align: center;
         }
-        /* Tooltip amélioré */
+        /* Tooltip */
         .tooltip {
             position: relative;
         }
@@ -319,22 +318,6 @@
                 flex-direction: column;
                 align-items: center;
             }
-        }
-        /* Badges pour les métriques */
-        .metric-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            margin-left: 10px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-        .metric-number {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-size: 0.7rem;
         }
     </style>
 </head>
@@ -407,19 +390,13 @@
 
         <!-- Publications internationales -->
         <div class="publications-section">
-            <!-- Exemple de publication internationale avec lien cliquable sur le titre -->
+            <!-- Exemple avec lien DOI -->
             <div class="publication-row" data-type="international">
                 <div class="publication-index">[23]</div>
                 <div class="category-indicator category-1"></div>
                 <div class="publication-content">
                     <a href="https://doi.org/10.1103/PhysRevFluids.9.114303" class="publication-link" target="_blank">
-                        <div class="publication-title">
-                            Drag reduction during the side-by-side motion of a pair of intruders in a granular medium
-                            <span class="metric-badge">
-                                <span class="metric-number">12</span>
-                                citations
-                            </span>
-                        </div>
+                        <div class="publication-title">Drag reduction during the side-by-side motion of a pair of intruders in a granular medium</div>
                         <div class="publication-details">
                             D.D. Carvalho, Y. Bertho, A. Seguin, E.M. Franklin et al., Phys. Rev. Fluids <strong>9</strong>, 114303 (2024)
                         </div>
@@ -433,29 +410,16 @@
                         <div class="link-label">PDF</div>
                         <span class="tooltiptext">Télécharger le PDF</span>
                     </div>
-                    <div class="link-container tooltip">
-                        <a href="https://doi.org/10.1103/PhysRevFluids.9.114303" target="_blank">
-                            <img src="images/icone_doi.gif" alt="DOI" class="link-icon">
-                        </a>
-                        <div class="link-label">DOI</div>
-                        <span class="tooltiptext">Voir sur le site de la revue</span>
-                    </div>
                 </div>
             </div>
 
-            <!-- Autres publications internationales -->
+            <!-- Exemple sans DOI (lien vers site de la revue) -->
             <div class="publication-row" data-type="international">
                 <div class="publication-index">[22]</div>
                 <div class="category-indicator category-1"></div>
                 <div class="publication-content">
-                    <a href="https://doi.org/10.1103/PhysRevE.109.054902" class="publication-link" target="_blank">
-                        <div class="publication-title">
-                            Penetration of a spinning sphere impacting a granular medium
-                            <span class="metric-badge">
-                                <span class="metric-number">8</span>
-                                citations
-                            </span>
-                        </div>
+                    <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.109.054902" class="publication-link" target="_blank">
+                        <div class="publication-title">Penetration of a spinning sphere impacting a granular medium</div>
                         <div class="publication-details">
                             D.D. Carvalho, Y. Bertho, E.M. Franklin and A. Seguin, Phys. Rev. E <strong>109</strong>, 054902 (2024)
                         </div>
@@ -469,42 +433,28 @@
                         <div class="link-label">PDF</div>
                         <span class="tooltiptext">Télécharger le PDF</span>
                     </div>
-                    <div class="link-container tooltip">
-                        <a href="https://doi.org/10.1103/PhysRevE.109.054902" target="_blank">
-                            <img src="images/icone_doi.gif" alt="DOI" class="link-icon">
-                        </a>
-                        <div class="link-label">DOI</div>
-                        <span class="tooltiptext">Voir sur le site de la revue</span>
-                    </div>
                 </div>
             </div>
 
-            <!-- Exemple sans métriques (si non disponibles) -->
-            <div class="publication-row" data-type="international">
-                <div class="publication-index">[21]</div>
-                <div class="category-indicator category-1"></div>
+            <!-- Exemple avec vidéo -->
+            <div class="publication-row" data-type="highlight">
+                <div class="publication-index">★</div>
+                <div class="category-indicator category-3"></div>
                 <div class="publication-content">
-                    <a href="https://doi.org/10.1038/s41598-023-45660-9" class="publication-link" target="_blank">
-                        <div class="publication-title">Long distance laser filamentation using Yb:YAG kHz laser</div>
+                    <a href="https://youtu.be/ryuyvXjt-DE" class="publication-link" target="_blank">
+                        <div class="publication-title">Les tornades</div>
                         <div class="publication-details">
-                            P. Walch, B. Mahieu, V. Moreno, T. Produit et al., Sci. Rep. <strong>13</strong>, 18542 (2023)
+                            <i>La science des forces de la nature</i>, Documentaire, RMC Découverte (07/09/2017)
                         </div>
                     </a>
                 </div>
                 <div class="publication-links">
                     <div class="link-container tooltip">
-                        <a href="papers/Bertho_SR13.pdf" target="_blank">
-                            <img src="images/icone_pdf.gif" alt="PDF" class="link-icon">
+                        <a href="Bertho_Tornades.mp4" target="_blank">
+                            <img src="images/icone_video.gif" alt="Vidéo" class="link-icon">
                         </a>
-                        <div class="link-label">PDF</div>
-                        <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                    <div class="link-container tooltip">
-                        <a href="https://doi.org/10.1038/s41598-023-45660-9" target="_blank">
-                            <img src="images/icone_doi.gif" alt="DOI" class="link-icon">
-                        </a>
-                        <div class="link-label">DOI</div>
-                        <span class="tooltiptext">Voir sur le site de la revue</span>
+                        <div class="link-label">Vidéo</div>
+                        <span class="tooltiptext">Voir la vidéo</span>
                     </div>
                 </div>
             </div>
@@ -528,36 +478,6 @@
                         </a>
                         <div class="link-label">PDF</div>
                         <span class="tooltiptext">Télécharger le PDF</span>
-                    </div>
-                    <div class="link-container tooltip">
-                        <a href="https://www.pourlascience.fr/sd/physique/avancer-de-front-dans-le-sable-reduit-la-resistance-27334.php" target="_blank">
-                            <img src="images/icone_web.gif" alt="Web" class="link-icon">
-                        </a>
-                        <div class="link-label">Web</div>
-                        <span class="tooltiptext">Voir l'article en ligne</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Highlights -->
-        <div class="publications-section">
-            <div class="publication-row" data-type="highlight">
-                <div class="publication-index">★</div>
-                <div class="category-indicator category-3"></div>
-                <div class="publication-content">
-                    <a href="https://phys.org/news/2024-12-cooperation-intruders-side-granular-media.html" class="publication-link" target="_blank">
-                        <div class="publication-title">Cooperation between two intruders moving side-by-side in granular media</div>
-                        <div class="publication-details">Science X (Phys.org) (28/12/2024)</div>
-                    </a>
-                </div>
-                <div class="publication-links">
-                    <div class="link-container tooltip">
-                        <a href="https://phys.org/news/2024-12-cooperation-intruders-side-granular-media.html" target="_blank">
-                            <img src="images/icone_web.gif" alt="Web" class="link-icon">
-                        </a>
-                        <div class="link-label">Web</div>
-                        <span class="tooltiptext">Voir l'article en ligne</span>
                     </div>
                 </div>
             </div>
@@ -607,17 +527,6 @@
                             pub.style.display = 'none';
                         }
                     });
-                });
-            });
-
-            // Ajout d'un effet de survol sur les liens de publication
-            const publicationLinks = document.querySelectorAll('.publication-link');
-            publicationLinks.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.color = 'var(--link-hover)';
-                });
-                link.addEventListener('mouseleave', function() {
-                    this.style.color = 'inherit';
                 });
             });
         });
