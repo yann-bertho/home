@@ -65,7 +65,6 @@
             margin: 0;
             font-weight: 600;
         }
-        /* Filtres */
         .filters-section {
             display: flex;
             flex-wrap: wrap;
@@ -83,15 +82,12 @@
             transition: all 0.2s;
             color: var(--text-primary);
         }
-        .filter-btn:hover {
-            background-color: var(--hover-bg);
-        }
+        .filter-btn:hover { background-color: var(--hover-bg); }
         .filter-btn.active {
             background-color: var(--accent-color);
             color: white;
             border-color: var(--accent-color);
         }
-        /* Statistiques */
         .stats-section {
             display: flex;
             justify-content: space-around;
@@ -103,11 +99,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px var(--shadow);
         }
-        .stat-item {
-            text-align: center;
-            flex: 1;
-            min-width: 150px;
-        }
+        .stat-item { text-align: center; flex: 1; min-width: 150px; }
         .stat-number {
             font-size: 1.5rem;
             font-weight: bold;
@@ -116,26 +108,10 @@
         .stat-number.international { color: var(--category-international); }
         .stat-number.diffusion { color: var(--category-diffusion); }
         .stat-number.congres { color: var(--category-congres); }
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        /* Sections */
-        .publications-section {
-            margin-bottom: 40px;
-        }
-        .section-header {
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--accent-color);
-        }
-        .section-title {
-            color: var(--text-primary);
-            font-size: 1.4rem;
-            margin: 0;
-            font-weight: 600;
-        }
-        /* Publications */
+        .stat-label { font-size: 0.9rem; color: var(--text-secondary); }
+        .publications-section { margin-bottom: 40px; }
+        .section-header { margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid var(--accent-color); }
+        .section-title { color: var(--text-primary); font-size: 1.4rem; margin: 0; font-weight: 600; }
         .publication-row {
             display: flex;
             flex-wrap: wrap;
@@ -144,32 +120,14 @@
             transition: background-color 0.2s;
             align-items: flex-start;
         }
-        .publication-row:hover {
-            background-color: var(--hover-bg);
-        }
+        .publication-row:hover { background-color: var(--hover-bg); }
         .publication-row:last-child { border-bottom: none; }
-        .publication-index-container {
-            flex: 0 0 40px;
-            display: flex;
-            justify-content: flex-end;
-            padding-right: 10px;
-        }
-        .publication-index {
-            font-weight: bold;
-            text-align: right;
-            min-width: 30px;
-        }
+        .publication-index-container { flex: 0 0 40px; display: flex; justify-content: flex-end; padding-right: 10px; }
+        .publication-index { font-weight: bold; text-align: right; min-width: 30px; }
         .publication-index.international { color: var(--category-international); }
         .publication-index.diffusion { color: var(--category-diffusion); }
         .publication-index.congres { color: var(--category-congres); }
-        .category-indicator {
-            width: 4px;
-            height: 100%;
-            border-radius: 2px;
-            margin-right: 15px;
-            min-height: 50px;
-            flex: 0 0 4px;
-        }
+        .category-indicator { width: 4px; height: 100%; border-radius: 2px; margin-right: 15px; min-height: 50px; flex: 0 0 4px; }
         .category-1 { background-color: var(--category-international); }
         .category-2 { background-color: var(--category-diffusion); }
         .category-3 { background-color: var(--category-congres); }
@@ -183,24 +141,13 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Publications</h1>
-        </div>
+        <div class="header"><h1>Publications</h1></div>
 
         <!-- Statistiques -->
         <div class="stats-section">
-            <div class="stat-item">
-                <div class="stat-number international">22</div>
-                <div class="stat-label">Publications internationales</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number diffusion">26</div>
-                <div class="stat-label">Diffusion et highlights</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number congres">14</div>
-                <div class="stat-label">Actes de congrès</div>
-            </div>
+            <div class="stat-item"><div class="stat-number international">22</div><div class="stat-label">Publications internationales</div></div>
+            <div class="stat-item"><div class="stat-number diffusion">26</div><div class="stat-label">Diffusion et highlights</div></div>
+            <div class="stat-item"><div class="stat-number congres">14</div><div class="stat-label">Actes de congrès</div></div>
         </div>
 
         <!-- Filtres -->
@@ -211,27 +158,56 @@
             <button class="filter-btn" data-filter="congres">Congrès</button>
         </div>
 
-        <!-- Sections -->
+        <!-- Publications internationales -->
         <div class="publications-section" id="international-section" data-type="international">
             <div class="section-header"><h2 class="section-title">Publications internationales à comité de lecture</h2></div>
-            <!-- publications internationales ici -->
+            <!-- Ici toutes vos publications internationales (déjà dans votre ancien fichier) -->
+            <!-- Exemple -->
+            <div class="publication-row" data-type="international">
+                <div class="publication-index-container">
+                    <div class="publication-index international"><strong>22</strong></div>
+                    <div class="category-indicator category-1"></div>
+                </div>
+                <div class="publication-content">
+                    <a href="https://doi.org/10.1103/PhysRevFluids.9.114303" class="publication-link" target="_blank">
+                        <div class="publication-title">Drag reduction during the side-by-side motion of a pair of intruders in a granular medium</div>
+                        <div class="publication-details">D.D. Carvalho, Y. Bertho, A. Seguin, E.M. Franklin et al., Phys. Rev. Fluids <strong>9</strong>, 114303 (2024)</div>
+                    </a>
+                </div>
+            </div>
+            <!-- ... toutes les autres publications internationales ... -->
         </div>
 
+        <!-- Diffusion -->
         <div class="publications-section" id="diffusion-section" data-type="diffusion">
             <div class="section-header"><h2 class="section-title">Diffusion scientifique et highlights</h2></div>
-            <!-- diffusion ici -->
+            <!-- Ici toutes vos publications diffusion (déjà dans votre ancien fichier) -->
+            <!-- Exemple -->
+            <div class="publication-row" data-type="diffusion">
+                <div class="publication-index-container">
+                    <div class="publication-index diffusion"><strong>26</strong></div>
+                    <div class="category-indicator category-2"></div>
+                </div>
+                <div class="publication-content">
+                    <a href="https://www.pourlascience.fr/sd/physique/avancer-de-front-dans-le-sable-reduit-la-resistance-27334.php" class="publication-link" target="_blank">
+                        <div class="publication-title">Avancer de front dans le sable réduit la résistance</div>
+                        <div class="publication-details">Pour la Science <strong>569</strong> (2025)</div>
+                    </a>
+                </div>
+            </div>
+            <!-- ... toutes les autres publications diffusion ... -->
         </div>
 
+        <!-- Congrès -->
         <div class="publications-section" id="congres-section" data-type="congres">
             <div class="section-header"><h2 class="section-title">Actes de congrès</h2></div>
-            <!-- congrès ici -->
+            <!-- Ici toutes vos publications congrès (déjà dans votre ancien fichier) -->
         </div>
     </div>
 
     <script>
         const buttons = document.querySelectorAll('.filter-btn');
         const sections = document.querySelectorAll('.publications-section');
-
         function showSections(filter) {
             sections.forEach(sec => {
                 if (filter === 'all' || sec.dataset.type === filter) {
@@ -241,7 +217,6 @@
                 }
             });
         }
-
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 buttons.forEach(b => b.classList.remove('active'));
@@ -249,8 +224,6 @@
                 showSections(btn.dataset.filter);
             });
         });
-
-        // Affiche toutes les sections au chargement
         showSections('all');
     </script>
 </body>
