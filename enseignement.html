@@ -19,7 +19,14 @@
             --section-border: 1px solid #eee;
             --table-border: 1px solid #ddd;
             --table-header-bg: #f5f5f5;
-            --mobile-breakpoint: 768px;
+
+            /* Couleurs par niveau */
+            --level-l1: #4a90e2;    /* Bleu */
+            --level-l2: #50c878;    /* Vert */
+            --level-l3: #9b59b6;    /* Violet */
+            --level-m1: #f39c12;    /* Orange */
+            --level-m2: #e74c3c;    /* Rouge */
+            --responsibility-color: #3498db;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -97,25 +104,16 @@
         .section {
             margin-bottom: 40px;
             padding: 20px 0;
-            border-bottom: var(--section-border);
         }
 
         .section:last-child {
-            border-bottom: none;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
+            padding-bottom: 0;
         }
 
         .section-title {
             color: var(--text-primary);
             font-size: 1.4rem;
-            margin: 0;
+            margin: 0 0 15px 0;
             font-weight: 600;
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 5px;
@@ -137,16 +135,19 @@
             min-width: 600px;
         }
 
-        th, td {
+        th {
             padding: 12px 15px;
             text-align: left;
             border: var(--table-border);
-        }
-
-        th {
             background-color: var(--table-header-bg);
             font-weight: 600;
             color: var(--text-primary);
+        }
+
+        td {
+            padding: 12px 15px;
+            border: var(--table-border);
+            position: relative;
         }
 
         tr:nth-child(even) {
@@ -157,27 +158,36 @@
             background-color: var(--hover-bg);
         }
 
-        .responsibilities-list {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 10px;
-        }
-
-        .responsibilities-list li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-            border-left: 3px solid var(--accent-color);
-        }
-
-        .responsibilities-list li:before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
+        /* Barre de niveau */
+        .level-indicator {
             position: absolute;
-            left: 5px;
-            top: 8px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-radius: 0 2px 2px 0;
+        }
+
+        /* Couleurs par niveau */
+        tr[data-level="L1"] .level-indicator { background-color: var(--level-l1); }
+        tr[data-level="L2"] .level-indicator { background-color: var(--level-l2); }
+        tr[data-level="L3"] .level-indicator { background-color: var(--level-l3); }
+        tr[data-level="M1"] .level-indicator { background-color: var(--level-m1); }
+        tr[data-level="M2"] .level-indicator { background-color: var(--level-m2); }
+
+        /* Style pour les responsabilités */
+        .responsibility-row {
+            background-color: rgba(52, 152, 219, 0.05) !important;
+            font-style: italic;
+        }
+
+        .responsibility-row td {
+            padding-left: 25px;
+        }
+
+        .responsibility-row td:first-child {
+            font-weight: 600;
+            color: var(--responsibility-color);
         }
 
         .activities-list {
@@ -230,9 +240,8 @@
                 align-self: flex-end;
             }
 
-            .responsibilities-list li,
-            .activities-list li {
-                padding-left: 20px;
+            .level-indicator {
+                width: 3px;
             }
         }
     </style>
@@ -249,11 +258,9 @@
             </div>
         </div>
 
-        <!-- Enseignements actuels -->
+        <!-- Enseignements actuels (2023-2024) -->
         <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Enseignements actuels (2023-2024)</h2>
-            </div>
+            <h2 class="section-title">Enseignements actuels (2023-2024)</h2>
 
             <div class="table-container">
                 <table>
@@ -267,33 +274,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>2021-...</td>
+                        <tr data-level="L3">
+                            <td><div class="level-indicator"></div>2021-...</td>
                             <td>L3</td>
                             <td>TD</td>
                             <td>Mécanique des fluides</td>
                             <td>PhysA311</td>
                         </tr>
-                        <tr>
-                            <td>2018-...</td>
+                        <tr data-level="L3">
+                            <td><div class="level-indicator"></div>2018-...</td>
                             <td>L3</td>
                             <td>Cours/TD</td>
                             <td>Mécanique des fluides</td>
                             <td>Phys311DLMP</td>
                         </tr>
-                        <tr>
-                            <td>2021-...</td>
+                        <tr data-level="L2">
+                            <td><div class="level-indicator"></div>2021-...</td>
                             <td>L2</td>
                             <td>Cours</td>
                             <td>Hydrodynamique expérimentale</td>
                             <td>Phys241</td>
                         </tr>
-                        <tr>
-                            <td>2012-...</td>
+                        <tr data-level="L2">
+                            <td><div class="level-indicator"></div>2012-...</td>
                             <td>L2</td>
                             <td>Projets</td>
                             <td>Hydrodynamique expérimentale</td>
                             <td>Phys241</td>
+                        </tr>
+                        <tr class="responsibility-row">
+                            <td colspan="5">Responsable de l'UE "Mécanique des fluides" du L3 Double Licence Math/Phys et de l'UE "Découverte de la mécanique des Fluides" du L2 Physique</td>
                         </tr>
                     </tbody>
                 </table>
@@ -302,9 +312,7 @@
 
         <!-- Enseignements passés -->
         <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Enseignements passés</h2>
-            </div>
+            <h2 class="section-title">Enseignements passés</h2>
 
             <div class="table-container">
                 <table>
@@ -318,120 +326,108 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>2006-2010</td>
+                        <tr data-level="M2">
+                            <td><div class="level-indicator"></div>2006-2010</td>
                             <td>M2</td>
                             <td>Cours/TD</td>
                             <td>Milieux dispersés</td>
                             <td>P-MEC-MD</td>
                         </tr>
-                        <tr>
-                            <td>2006-2008</td>
+                        <tr data-level="M2">
+                            <td><div class="level-indicator"></div>2006-2008</td>
                             <td>M2</td>
                             <td>TP</td>
                             <td>Formation pratique : codes industriels FLOTHERM, FLOVENT</td>
                             <td>-</td>
                         </tr>
-                        <tr>
-                            <td>2010-2014</td>
+                        <tr data-level="M1">
+                            <td><div class="level-indicator"></div>2010-2014</td>
                             <td>M1</td>
                             <td>TD</td>
                             <td>Mécanique des fluides</td>
                             <td>M1P-PAM02</td>
                         </tr>
-                        <tr>
-                            <td>2006-2010</td>
+                        <tr data-level="M1">
+                            <td><div class="level-indicator"></div>2006-2010</td>
                             <td>M1</td>
                             <td>TD/TP</td>
                             <td>Milieux granulaires</td>
                             <td>P-MEC-413A</td>
                         </tr>
-                        <tr>
-                            <td>2006-2007</td>
+                        <tr data-level="M1">
+                            <td><div class="level-indicator"></div>2006-2007</td>
                             <td>M1</td>
                             <td>TP</td>
                             <td>Formation pratique : code industriel FLUENT</td>
                             <td>-</td>
                         </tr>
-                        <tr>
-                            <td>2009-2011</td>
+                        <tr data-level="L3">
+                            <td><div class="level-indicator"></div>2009-2011</td>
                             <td>L3</td>
                             <td>TD</td>
                             <td>Élasticité</td>
                             <td>PhysM334</td>
                         </tr>
-                        <tr>
-                            <td>2014-2015</td>
+                        <tr data-level="L3">
+                            <td><div class="level-indicator"></div>2014-2015</td>
                             <td>L3</td>
                             <td>TP</td>
                             <td>Mécanique des fluides</td>
                             <td>PhysA311</td>
                         </tr>
-                        <tr>
-                            <td>2006-2014</td>
+                        <tr data-level="L3">
+                            <td><div class="level-indicator"></div>2006-2014</td>
                             <td>L3</td>
                             <td>TP</td>
                             <td>Formation expérimentale</td>
                             <td>PhysM305</td>
                         </tr>
-                        <tr>
-                            <td>2006-2012</td>
+                        <tr data-level="L3">
+                            <td><div class="level-indicator"></div>2006-2012</td>
                             <td>L3</td>
                             <td>TP</td>
                             <td>Formation pratique : code industriel FLUENT</td>
                             <td>PhysM314</td>
                         </tr>
-                        <tr>
-                            <td>2006-2012</td>
+                        <tr data-level="L2">
+                            <td><div class="level-indicator"></div>2006-2012</td>
                             <td>L2</td>
                             <td>TD</td>
                             <td>Préparation aux concours Magistère et Concours de Physique</td>
                             <td>Phys209r</td>
                         </tr>
-                        <tr>
-                            <td>2020-2022</td>
+                        <tr data-level="L1">
+                            <td><div class="level-indicator"></div>2020-2022</td>
                             <td>L1</td>
                             <td>TD</td>
                             <td>Physique</td>
                             <td>PY160N</td>
                         </tr>
-                        <tr>
-                            <td>2010-2020</td>
+                        <tr data-level="L1">
+                            <td><div class="level-indicator"></div>2010-2020</td>
                             <td>L1</td>
                             <td>TD</td>
                             <td>Optique, énergie, évolution des systèmes</td>
                             <td>Phys160</td>
                         </tr>
-                        <tr>
-                            <td>2010-2016</td>
+                        <tr data-level="L1">
+                            <td><div class="level-indicator"></div>2010-2016</td>
                             <td>L1</td>
                             <td>TP</td>
                             <td>Optique, énergie, évolution des systèmes</td>
                             <td>Phys160</td>
+                        </tr>
+                        <tr class="responsibility-row">
+                            <td colspan="5">Responsable des Travaux Pratiques du L1 BCST "Optique, énergie, évolution des systèmes" (2010-2020)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <!-- Responsabilités d'Unités d'Enseignement -->
-        <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Responsabilités d'Unités d'Enseignement</h2>
-            </div>
-
-            <ul class="responsibilities-list">
-                <li>Responsable des Travaux Pratiques du L1 BCST "Optique, énergie, évolution des systèmes"</li>
-                <li>Responsable de l'UE "Découverte de la mécanique des Fluides" du L2 Physique</li>
-                <li>Responsable de l'UE "Mécanique des fluides" du L3 Double Licence Math/Phys</li>
-            </ul>
-        </div>
-
         <!-- Activités de diffusion de la science -->
         <div class="section">
-            <div class="section-header">
-                <h2 class="section-title">Activités de diffusion de la science</h2>
-            </div>
+            <h2 class="section-title">Activités de diffusion de la science</h2>
 
             <ul class="activities-list">
                 <li><a href="http://www.fetedelascience.fr/" target="_blank" rel="noopener">Fête de la science</a> à l'Université Paris-Saclay (depuis 2006)</li>
